@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 Color textColor = Color(0xff6980C5);
 
@@ -8,6 +9,15 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  var _visiblePassword = false;
+
+  setVisiblePassword() {
+    print(_visiblePassword);
+    setState(() {
+      _visiblePassword = !_visiblePassword;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,15 +55,24 @@ class _LoginScreenState extends State<LoginScreen> {
               margin: EdgeInsets.only(bottom: 20, left: 20, right: 20),
               child: TextField(
                 decoration: InputDecoration(
-                    hintText: 'Password',
-                    hintStyle: TextStyle(
+                  hintText: 'Password',
+                  hintStyle: TextStyle(
+                    color: textColor,
+                  ),
+                  border: InputBorder.none,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      (_visiblePassword == false
+                          ? Icons.visibility
+                          : Icons.visibility_off),
                       color: textColor,
                     ),
-                    border: InputBorder.none,
-                    suffixIcon: Icon(
-                      Icons.visibility,
-                      color: textColor,
-                    )),
+                    onPressed: () {
+                      setVisiblePassword();
+                    },
+                  ),
+                ),
+                obscureText: _visiblePassword == false ? true : false,
               ),
             ),
             Container(
