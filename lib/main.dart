@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makaryo_mobile/screens/login-screen.dart';
 import 'package:provider/provider.dart';
 import 'screens/home-screen.dart';
 import 'providers/theme-changer.dart';
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ThemeChanger>(
-      create: (_) => ThemeChanger(ThemeData.dark()),
+      create: (_) => ThemeChanger(ThemeData.light()),
       child: MaterialAppWithTheme(),
     );
   }
@@ -20,7 +21,7 @@ class MaterialAppWithTheme extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeChanger>(context);
     return MaterialApp(
-      home: HomeScreen(),
+      home: LoginScreen(),
       theme: theme.getTheme(),
     );
   }
