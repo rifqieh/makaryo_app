@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:makaryo_mobile/screens/login-screen.dart';
+import 'package:makaryo_mobile/screens/register-screen.dart';
 import 'package:provider/provider.dart';
 import 'screens/home-screen.dart';
 import 'providers/theme-changer.dart';
@@ -21,7 +22,7 @@ class MaterialAppWithTheme extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeChanger>(context);
     return MaterialApp(
-      home: LoginScreen(),
+      home: HomeScreen(),
       theme: theme.getTheme(),
     );
   }
