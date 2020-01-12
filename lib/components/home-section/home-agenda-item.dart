@@ -15,27 +15,62 @@ class HomeAgendaItem extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) =>
-                      AgendaPageView(_color, _date, _time, _location)));
-        },
-        child: Container(
-          margin: EdgeInsets.symmetric(vertical: 10),
-          padding: EdgeInsets.all(20),
-          child: Row(
-            children: <Widget>[
-              Container(
-                height: 90,
-                child: AspectRatio(
-                  aspectRatio: 2 / 1,
-                  child: Container(
-                    color: _color,
-                  ),
+// <<<<<<< user-ui
+//       clipBehavior: Clip.antiAlias,
+//       child: InkWell(
+//         onTap: () {
+//           Navigator.push(
+//               context,
+//               MaterialPageRoute(
+//                   builder: (context) =>
+//                       AgendaPageView(_color, _date, _time, _location)));
+//         },
+//         child: Container(
+//           margin: EdgeInsets.symmetric(vertical: 10),
+//           padding: EdgeInsets.all(20),
+//           child: Row(
+//             children: <Widget>[
+//               Container(
+//                 height: 90,
+//                 child: AspectRatio(
+//                   aspectRatio: 2 / 1,
+//                   child: Container(
+//                     color: _color,
+//                   ),
+// =======
+      child: Row(
+        children: <Widget>[
+          Container(
+            height: 90,
+            child: AspectRatio(
+              aspectRatio: 2 / 1,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: _color,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          Container(
+            height: 90,
+            child: Column(
+              children: <Widget>[
+                Text(
+                  'Waktu:',
+                  style: TextStyle(color: Colors.grey),
+                ),
+                Text(
+                  _date,
+                  style: TextStyle(fontWeight: FontWeight.w600),
+                ),
+                Text(
+                  _time,
+                  style: TextStyle(fontWeight: FontWeight.w600),
+// >>>>>>> master
                 ),
               ),
               SizedBox(
