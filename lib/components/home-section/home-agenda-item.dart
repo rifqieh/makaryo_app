@@ -24,7 +24,10 @@ class HomeAgendaItem extends StatelessWidget {
             child: AspectRatio(
               aspectRatio: 2 / 1,
               child: Container(
-                color: _color,
+                decoration: BoxDecoration(
+                  color: _color,
+                  borderRadius: BorderRadius.circular(16),
+                ),
               ),
             ),
           ),

@@ -21,7 +21,10 @@ class HomeCategoryItem extends StatelessWidget {
           Container(
             height: 50,
             width: 50,
-            color: _color,
+            decoration: BoxDecoration(
+              color: _color,
+              borderRadius: BorderRadius.circular(32),
+            ),
           ),
           SizedBox(
             width: 20,
@@ -46,12 +49,18 @@ class HomeCategoryItem extends StatelessWidget {
                     Container(
                       width: 250,
                       height: 20,
-                      color: Colors.grey,
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
                     Container(
                       width: 250 * _percen,
                       height: 20,
-                      color: _color,
+                      decoration: BoxDecoration(
+                        color: _color,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
                   ],
                 )
