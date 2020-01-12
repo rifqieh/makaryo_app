@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makaryo_mobile/providers/agendaClass.dart';
 
 class AgendaPageView extends StatelessWidget {
   var _color = Colors.amberAccent;
@@ -6,7 +7,13 @@ class AgendaPageView extends StatelessWidget {
   var _time;
   var _location;
 
-  AgendaPageView(this._color, this._date, this._time, this._location);
+  AgendaPageView(Agenda agenda) {
+    _color = agenda.getGambar();
+    var tmp = agenda.getWaktu();
+    _time = "${tmp.getJamMulai()} s/d ${tmp.getJamSelesai()}";
+    _date = tmp.getTanggal();
+    _location = agenda.getLokasi();
+  }
 
   @override
   Widget build(BuildContext context) {

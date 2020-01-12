@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:makaryo_mobile/components/home-section/home-agenda-item.dart';
+import 'package:makaryo_mobile/screens/dummyData.dart';
 import './home-category-item.dart';
+import 'home-agenda-item.dart';
+import 'home-agenda-item.dart';
+import 'home-agenda-item.dart';
 
 class HomeAgenda extends StatelessWidget {
   const HomeAgenda({
@@ -25,10 +29,10 @@ class HomeAgenda extends StatelessWidget {
                 Text('SELENGKAPNYA'),
               ],
             ),
-            HomeAgendaItem(Colors.amberAccent, '20 Januari 2020',
-                '08.00 - 14.00', 'Kamayangan Cafe'),
-            HomeAgendaItem(Colors.blueAccent, '24 Februari 2020',
-                '10.00 - 15.00', 'Auditorium UNS'),
+            Column(
+              children:
+                  agendaList.map((agenda) => HomeAgendaItem(agenda)).toList(),
+            )
           ],
         ),
       ),
