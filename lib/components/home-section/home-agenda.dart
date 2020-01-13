@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:makaryo_mobile/components/home-section/home-agenda-item.dart';
+import 'package:makaryo_mobile/screens/agenda-list-screen.dart';
 import 'package:makaryo_mobile/screens/dummyData.dart';
 import 'home-agenda-item.dart';
 
@@ -24,14 +25,22 @@ class HomeAgenda extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
                 FlatButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AgendaListScreen()));
+                  },
                   child: Text('SELENGKAPNYA'),
                 ),
               ],
             ),
             Column(
-              children:
-                  agendaList.map((agenda) => HomeAgendaItem(agenda)).toList(),
+              children: agendaList
+                  .where((a) => agendaList.indexOf(a) < 2)
+                  .toList()
+                  .map((agenda) => HomeAgendaItem(agenda))
+                  .toList(),
             )
           ],
         ),
