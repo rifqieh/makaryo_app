@@ -83,6 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: textColor,
                 ),
                 child: FlatButton(
+                  onPressed: () {},
                   child: Text(
                     'LOGIN',
                     style: TextStyle(color: Colors.white),
@@ -98,6 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Colors.white,
                 ),
                 child: FlatButton(
+                  onPressed: () {},
                   child: Text(
                     'SIGN UP',
                     style: TextStyle(color: textColor),

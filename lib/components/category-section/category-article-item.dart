@@ -16,7 +16,7 @@ class _CategoryArticleItemState extends State<CategoryArticleItem> {
   var _idKonten, _kategori, _jenis, _bookmark, _judul, _url;
 
   _CategoryArticleItemState(this.konten) {
-    this._idKonten - konten.getIdKonten();
+    this._idKonten = konten.getIdKonten();
     this._kategori = konten.getKategori();
     this._jenis = konten.getJenis();
     this._bookmark = konten.getBookmark();
@@ -38,8 +38,10 @@ class _CategoryArticleItemState extends State<CategoryArticleItem> {
           icon: Icon(_bookmark ? Icons.favorite : Icons.favorite_border),
           color: primaryColor,
           onPressed: () {
-            konten.setBookmark();
-            _bookmark = konten.getBookmark();
+            setState(() {
+              konten.setBookmark();
+              _bookmark = konten.getBookmark();
+            });
           },
         ),
       ),

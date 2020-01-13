@@ -22,7 +22,10 @@ class HomeCategory extends StatelessWidget {
                   'KATEGORI',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
-                Text('SELENGKAPNYA'),
+                FlatButton(
+                  child: Text('SELENGKAPNYA'),
+                  onPressed: () {},
+                ),
               ],
             ),
             Column(

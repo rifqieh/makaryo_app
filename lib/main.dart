@@ -1,3 +1,5 @@
+import 'package:makaryo_mobile/color.dart';
+
 import 'chewie-list-item.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -17,7 +19,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ThemeChanger>(
-      create: (_) => ThemeChanger(ThemeData.light()),
+      create: (_) => ThemeChanger(
+        ThemeData(
+          primaryColor: primaryColor,
+          backgroundColor: backgroundColor,
+          cardTheme: CardTheme(
+            clipBehavior: Clip.hardEdge,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            elevation: 16,
+          ),
+        ),
+      ),
       child: MaterialAppWithTheme(),
     );
   }

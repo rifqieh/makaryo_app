@@ -23,7 +23,10 @@ class HomeAgenda extends StatelessWidget {
                   'AGENDA',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
-                Text('SELENGKAPNYA'),
+                FlatButton(
+                  onPressed: () {},
+                  child: Text('SELENGKAPNYA'),
+                ),
               ],
             ),
             Column(

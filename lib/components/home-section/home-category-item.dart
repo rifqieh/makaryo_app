@@ -17,22 +17,16 @@ class HomeCategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => CategoryScreen(_text)));
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => CategoryScreen(kategori)));
         },
         child: Container(
           margin: EdgeInsets.symmetric(vertical: 10),
           padding: EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: Colors.white,
-          ),
           child: Row(
             children: <Widget>[
               Container(

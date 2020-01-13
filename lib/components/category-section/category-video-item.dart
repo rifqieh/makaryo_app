@@ -16,7 +16,7 @@ class _CategoryVideoItemState extends State<CategoryVideoItem> {
   var _idKonten, _kategori, _jenis, _bookmark, _judul, _url;
 
   _CategoryVideoItemState(this.konten) {
-    this._idKonten - konten.getIdKonten();
+    this._idKonten = konten.getIdKonten();
     this._kategori = konten.getKategori();
     this._jenis = konten.getJenis();
     this._bookmark = konten.getBookmark();
@@ -38,8 +38,10 @@ class _CategoryVideoItemState extends State<CategoryVideoItem> {
           icon: Icon(_bookmark ? Icons.favorite : Icons.favorite_border),
           color: primaryColor,
           onPressed: () {
-            konten.setBookmark();
-            _bookmark = konten.getBookmark();
+            setState(() {
+              konten.setBookmark();
+              _bookmark = konten.getBookmark();
+            });
           },
         ),
         leading: Container(
