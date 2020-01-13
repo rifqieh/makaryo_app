@@ -1,3 +1,5 @@
+import 'package:makaryo_mobile/screens/add-post-admin-screen.dart';
+import 'package:makaryo_mobile/screens/admin-home-screen.dart';
 import 'package:makaryo_mobile/screens/category-list-admin-screen.dart';
 
 import 'chewie-list-item.dart';
@@ -30,7 +32,7 @@ class MaterialAppWithTheme extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeChanger>(context);
     return MaterialApp(
-      home: CategoryScreen('Kategori'),
+      home: AddPostAdminScreen(),
       theme: theme.getTheme(),
     );
   }
