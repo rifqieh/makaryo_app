@@ -5,7 +5,9 @@ import '../color.dart';
 import 'dummyData.dart';
 
 class CategoryScreen extends StatelessWidget {
-  var _category = 'KATEGORI';
+  var _category;
+
+  CategoryScreen(this._category);
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +25,9 @@ class CategoryScreen extends StatelessWidget {
           child: ListView.builder(
             itemCount: 20,
             itemBuilder: (context, index) {
-              return (
-                      // if (kontenList[index].getKategori() == _category) {
-                      kontenList[index].getJenis() == "artikel"
-                          ? CategoryArticleItem(kontenList[index])
-                          : CategoryVideoItem(kontenList[index])
-                  // }
-                  );
+              return (kontenList[index].getJenis() == "artikel"
+                  ? CategoryArticleItem(kontenList[index])
+                  : CategoryVideoItem(kontenList[index]));
             },
           ),
         ),
