@@ -1,3 +1,5 @@
+import 'package:makaryo_mobile/screens/category-list-admin-screen.dart';
+
 import 'chewie-list-item.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -28,7 +30,7 @@ class MaterialAppWithTheme extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeChanger>(context);
     return MaterialApp(
-      home: HomeScreen(),
+      home: CategoryScreen('Kategori'),
       theme: theme.getTheme(),
     );
   }
