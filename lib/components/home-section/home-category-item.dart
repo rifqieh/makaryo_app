@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:makaryo_mobile/providers/kategoriClass.dart';
 
 class HomeCategoryItem extends StatelessWidget {
+  Kategori kategori;
   var _color;
   var _text;
   var _percen;
 
-  HomeCategoryItem(this._color, this._text, this._percen);
+  HomeCategoryItem(this.kategori) {
+    _color = kategori.getColor();
+    _text = kategori.getKategoriName();
+    _percen = kategori.getPercentage();
+  }
 
   @override
   Widget build(BuildContext context) {

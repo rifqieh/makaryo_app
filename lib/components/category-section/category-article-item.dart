@@ -1,7 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:makaryo_mobile/providers/kontenClass.dart';
 import '../../color.dart';
 
-class CategoryArticleItem extends StatelessWidget {
+class CategoryArticleItem extends StatefulWidget {
+  Konten konten;
+
+  CategoryArticleItem(this.konten);
+
+  @override
+  _CategoryArticleItemState createState() => _CategoryArticleItemState(konten);
+}
+
+class _CategoryArticleItemState extends State<CategoryArticleItem> {
+  Konten konten;
+  var _idKonten, _kategori, _jenis, _bookmark, _judul, _url;
+
+  _CategoryArticleItemState(this.konten) {
+    this._idKonten - konten.getIdKonten();
+    this._kategori = konten.getKategori();
+    this._jenis = konten.getJenis();
+    this._bookmark = konten.getBookmark();
+    this._judul = konten.getJudul();
+    this._url = konten.getUrl();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -11,10 +33,14 @@ class CategoryArticleItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
       ),
       child: ListTile(
-        title: Text('Hello'),
-        trailing: Icon(
-          Icons.favorite,
+        title: Text(_judul),
+        trailing: IconButton(
+          icon: Icon(_bookmark ? Icons.favorite : Icons.favorite_border),
           color: primaryColor,
+          onPressed: () {
+            konten.setBookmark();
+            _bookmark = konten.getBookmark();
+          },
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makaryo_mobile/screens/dummyData.dart';
 import './home-category-item.dart';
 
 class HomeCategory extends StatelessWidget {
@@ -24,10 +25,11 @@ class HomeCategory extends StatelessWidget {
                 Text('SELENGKAPNYA'),
               ],
             ),
-            HomeCategoryItem(Colors.amberAccent, 'Kuliner', 0.7),
-            HomeCategoryItem(Colors.blueAccent, 'Fesyen', 0.4),
-            HomeCategoryItem(Colors.redAccent, 'Kerajinan', 0.2),
-            HomeCategoryItem(Colors.greenAccent, 'Motivasi', 0.1),
+            Column(
+              children: kategoriList
+                  .map((kategori) => HomeCategoryItem(kategori))
+                  .toList(),
+            )
           ],
         ),
       ),

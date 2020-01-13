@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:makaryo_mobile/components/home-section/home-agenda-item.dart';
 import 'package:makaryo_mobile/screens/dummyData.dart';
-import './home-category-item.dart';
-import 'home-agenda-item.dart';
-import 'home-agenda-item.dart';
 import 'home-agenda-item.dart';
 
 class HomeAgenda extends StatelessWidget {

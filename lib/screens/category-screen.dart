@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:makaryo_mobile/components/category-section/category-article-item.dart';
 import 'package:makaryo_mobile/components/category-section/category-video-item.dart';
 import '../color.dart';
+import 'dummyData.dart';
 
 class CategoryScreen extends StatelessWidget {
   var _category = 'KATEGORI';
@@ -22,9 +23,13 @@ class CategoryScreen extends StatelessWidget {
           child: ListView.builder(
             itemCount: 20,
             itemBuilder: (context, index) {
-              return (index % 4 == 1
-                  ? CategoryArticleItem()
-                  : CategoryVideoItem());
+              return (
+                      // if (kontenList[index].getKategori() == _category) {
+                      kontenList[index].getJenis() == "artikel"
+                          ? CategoryArticleItem(kontenList[index])
+                          : CategoryVideoItem(kontenList[index])
+                  // }
+                  );
             },
           ),
         ),
