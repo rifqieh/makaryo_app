@@ -21,19 +21,16 @@ class HomeAgendaItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => AgendaPageView(_agenda)));
+              MaterialPageRoute(builder: (context) => AgendaScreen(_agenda)));
         },
         child: Container(
           margin: EdgeInsets.symmetric(vertical: 10),
           padding: EdgeInsets.all(20),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Container(
                 height: 90,
@@ -47,11 +44,7 @@ class HomeAgendaItem extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
-                width: 20,
-              ),
               Container(
-                height: 90,
                 child: Column(
                   children: <Widget>[
                     Text(
@@ -66,35 +59,13 @@ class HomeAgendaItem extends StatelessWidget {
                       _time,
                       style: TextStyle(fontWeight: FontWeight.w600),
                     ),
-                    SizedBox(
-                      width: 20,
+                    Text(
+                      'Tempat:',
+                      style: TextStyle(color: Colors.grey),
                     ),
-                    Container(
-                      height: 90,
-                      child: Column(
-                        children: <Widget>[
-                          Text(
-                            'Waktu:',
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          Text(
-                            _date,
-                            style: TextStyle(fontWeight: FontWeight.w600),
-                          ),
-                          Text(
-                            _time,
-                            style: TextStyle(fontWeight: FontWeight.w600),
-                          ),
-                          Text(
-                            'Tempat:',
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          Text(
-                            _location,
-                            style: TextStyle(fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
+                    Text(
+                      _location,
+                      style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),

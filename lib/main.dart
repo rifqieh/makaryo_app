@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
             ),
-            elevation: 16,
+            elevation: 2,
           ),
         ),
       ),

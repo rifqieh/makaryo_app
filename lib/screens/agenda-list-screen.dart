@@ -8,13 +8,12 @@ class AgendaListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "AGENDA",
-          style: TextStyle(fontWeight: FontWeight.w600, color: blackColor),
-        ),
+        title: Text("AGENDA"),
         leading: BackButton(),
       ),
       body: Container(
+        margin: EdgeInsets.only(top: 20),
+        padding: EdgeInsets.only(left: 20, right: 20),
         color: backgroundColor,
         child: SafeArea(
           child: ListView.builder(

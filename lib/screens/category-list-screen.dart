@@ -10,11 +10,12 @@ class CategoryListScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "KATEGORI",
-          style: TextStyle(fontWeight: FontWeight.w600, color: blackColor),
         ),
         leading: BackButton(),
       ),
       body: Container(
+        margin: EdgeInsets.only(top: 20),
+        padding: EdgeInsets.only(left: 20, right: 20),
         color: backgroundColor,
         child: SafeArea(
           child: ListView.builder(

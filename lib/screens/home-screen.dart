@@ -9,33 +9,26 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
+  List<Widget> homeScreenList = [
+    BerandaScreen(),
+    NotifikasiScreen(),
+    ProfilScreen()
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Color(0xffF7F6EE),
-        child: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                HomeCategory(),
-                HomeAgenda(),
-              ],
-            ),
-          ),
-        ),
-      ),
+      body: homeScreenList[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             title: Text('Beranda'),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            title: Text('Pencarian'),
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.search),
+          //   title: Text('Pencarian'),
+          // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications),
             title: Text('Notifikasi'),
@@ -55,5 +48,58 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
     );
+  }
+}
+
+class BerandaScreen extends StatelessWidget {
+  const BerandaScreen({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0xffF7F6EE),
+      child: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              HomeCategory(),
+              HomeAgenda(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class NotifikasiScreen extends StatelessWidget {
+  const NotifikasiScreen({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        color: Color(0xffF7F6EE),
+        child: Center(
+          child: Text("Notifikasi"),
+        ));
+  }
+}
+
+class ProfilScreen extends StatelessWidget {
+  const ProfilScreen({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        color: Color(0xffF7F6EE),
+        child: Center(
+          child: Text("Profil"),
+        ));
   }
 }

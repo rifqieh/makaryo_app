@@ -13,37 +13,37 @@ class HomeAgenda extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 20),
-      child: Container(
-        padding: EdgeInsets.only(left: 20, right: 20),
-        child: Column(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  'AGENDA',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                ),
-                FlatButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => AgendaListScreen()));
-                  },
-                  child: Text('SELENGKAPNYA'),
-                ),
-              ],
-            ),
-            Column(
-              children: agendaList
-                  .where((a) => agendaList.indexOf(a) < 2)
-                  .toList()
-                  .map((agenda) => HomeAgendaItem(agenda))
-                  .toList(),
-            )
-          ],
-        ),
+      padding: EdgeInsets.only(left: 20, right: 20),
+      child: Column(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                'AGENDA',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              ),
+              FlatButton(
+                child: Text(agendaList.length < 3 ? "" : 'SELENGKAPNYA'),
+                onPressed: agendaList.length < 3
+                    ? null
+                    : () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AgendaListScreen()));
+                      },
+              ),
+            ],
+          ),
+          Column(
+            children: agendaList
+                .where((a) => agendaList.indexOf(a) < 3)
+                .toList()
+                .map((agenda) => HomeAgendaItem(agenda))
+                .toList(),
+          )
+        ],
       ),
     );
   }

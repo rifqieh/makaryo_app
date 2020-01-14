@@ -23,7 +23,6 @@ class CategoryScreen extends StatelessWidget {
         backgroundColor: _color,
         title: Text(
           _name,
-          style: TextStyle(fontWeight: FontWeight.w600, color: blackColor),
         ),
       ),
       body: Container(
