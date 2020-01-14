@@ -18,9 +18,12 @@ class HomeCategory extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text(
-                'MATERI',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              Container(
+                padding: Theme.of(context).buttonTheme.padding,
+                child: Text(
+                  'MATERI',
+                  style: Theme.of(context).textTheme.title,
+                ),
               ),
               FlatButton(
                 child: Text(kategoriList.length < 3 ? '' : 'SELENGKAPNYA'),

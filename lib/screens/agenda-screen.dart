@@ -80,8 +80,8 @@ class AgendaScreen extends StatelessWidget {
           )
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.list),
+      floatingActionButton: FloatingActionButton.extended(
+        label: Text("DAFTAR"),
         onPressed: () {},
       ),
     );

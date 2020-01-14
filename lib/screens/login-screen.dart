@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:makaryo_mobile/screens/home-screen.dart';
+import 'package:makaryo_mobile/screens/register-screen.dart';
 
 Color textColor = Color(0xff6980C5);
 
@@ -83,7 +85,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: textColor,
                 ),
                 child: FlatButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(),
+                        ));
+                  },
                   child: Text(
                     'LOGIN',
                     style: TextStyle(color: Colors.white),
@@ -99,7 +108,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Colors.white,
                 ),
                 child: FlatButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RegisterScreen()));
+                  },
                   child: Text(
                     'SIGN UP',
                     style: TextStyle(color: textColor),

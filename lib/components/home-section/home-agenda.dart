@@ -12,16 +12,19 @@ class HomeAgenda extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 20),
+      margin: EdgeInsets.only(top: 20, bottom: 20),
       padding: EdgeInsets.only(left: 20, right: 20),
       child: Column(
         children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text(
-                'AGENDA',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              Container(
+                padding: Theme.of(context).buttonTheme.padding,
+                child: Text(
+                  'AGENDA',
+                  style: Theme.of(context).textTheme.title,
+                ),
               ),
               FlatButton(
                 child: Text(agendaList.length < 3 ? "" : 'SELENGKAPNYA'),

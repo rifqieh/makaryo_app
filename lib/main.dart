@@ -22,13 +22,15 @@ class MyApp extends StatelessWidget {
       create: (_) => ThemeChanger(
         ThemeData(
           primaryColor: primaryColor,
+          accentColor: primaryColor,
           backgroundColor: backgroundColor,
+          canvasColor: backgroundColor,
           cardTheme: CardTheme(
             clipBehavior: Clip.hardEdge,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
             ),
-            elevation: 2,
+            elevation: 1,
           ),
         ),
       ),
