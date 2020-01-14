@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 import 'package:makaryo_mobile/screens/add-post-admin-screen.dart';
 import 'package:makaryo_mobile/screens/admin-home-screen.dart';
+=======
+import 'package:makaryo_mobile/color.dart';
+>>>>>>> 7335fed
 import 'package:makaryo_mobile/screens/category-list-admin-screen.dart';
-
+import 'package:makaryo_mobile/screens/pdf-viewer-screen.dart';
 import 'chewie-list-item.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -21,7 +25,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ThemeChanger>(
-      create: (_) => ThemeChanger(ThemeData.light()),
+      create: (_) => ThemeChanger(
+        ThemeData(
+          primaryColor: primaryColor,
+          accentColor: primaryColor,
+          backgroundColor: backgroundColor,
+          canvasColor: backgroundColor,
+          cardTheme: CardTheme(
+            clipBehavior: Clip.hardEdge,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            elevation: 1,
+          ),
+        ),
+      ),
       child: MaterialAppWithTheme(),
     );
   }
@@ -32,7 +50,11 @@ class MaterialAppWithTheme extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeChanger>(context);
     return MaterialApp(
+<<<<<<< HEAD
       home: AddPostAdminScreen(),
+=======
+      home: HomeScreen(),
+>>>>>>> 7335fed
       theme: theme.getTheme(),
     );
   }

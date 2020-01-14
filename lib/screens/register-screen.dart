@@ -132,6 +132,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   color: textColor,
                 ),
                 child: FlatButton(
+                  onPressed: () {},
                   child: Text(
                     'NEXT',
                     style: TextStyle(color: Colors.white),

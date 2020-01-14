@@ -38,8 +38,10 @@ class _CategoryArticleItemState extends State<CategoryArticleItem> {
           icon: Icon(_bookmark ? Icons.favorite : Icons.favorite_border),
           color: primaryColor,
           onPressed: () {
-            konten.setBookmark();
-            _bookmark = konten.getBookmark();
+            setState(() {
+              konten.setBookmark();
+              _bookmark = konten.getBookmark();
+            });
           },
         ),
       ),
