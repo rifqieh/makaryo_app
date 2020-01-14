@@ -11,7 +11,6 @@ class CategoryListScreen extends StatelessWidget {
         title: Text(
           "KATEGORI",
         ),
-        leading: BackButton(),
       ),
       body: Container(
         margin: EdgeInsets.only(top: 20),

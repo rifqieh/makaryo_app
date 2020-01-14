@@ -1,5 +1,6 @@
 import 'package:makaryo_mobile/color.dart';
 import 'package:makaryo_mobile/screens/category-list-admin-screen.dart';
+import 'package:makaryo_mobile/screens/pdf-viewer-screen.dart';
 import 'chewie-list-item.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
