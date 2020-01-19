@@ -1,6 +1,7 @@
 # makaryo_mobile
 
-A new Flutter project.
+Buat bikin pdf
+https://pub.dev/packages/pdf
 
 ## Getting Started
 
