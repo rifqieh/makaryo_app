@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:makaryo_mobile/screens/admin-home-screen.dart';
 import 'package:makaryo_mobile/screens/home-screen.dart';
 import 'package:makaryo_mobile/screens/register-screen.dart';
 
@@ -12,6 +13,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   var _visiblePassword = false;
+  var _email;
 
   setVisiblePassword() {
     print(_visiblePassword);
@@ -46,6 +48,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     border: InputBorder.none,
                   ),
+                  onChanged: (value) {
+                    print(value);
+                    setState(() {
+                      _email = value;
+                    });
+                  },
                 ),
               ),
               Container(
@@ -86,12 +94,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 child: FlatButton(
                   onPressed: () {
-                    Navigator.of(context).pop();
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
-                        ));
+                    if (_email == 'admin') {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AdminHomeScreen()));
+                    } else {
+                      Navigator.of(context).pop();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeScreen(),
+                          ));
+                    }
                   },
                   child: Text(
                     'LOGIN',
