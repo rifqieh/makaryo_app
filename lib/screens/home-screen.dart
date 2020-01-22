@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:makaryo_mobile/color.dart';
 import 'package:makaryo_mobile/components/home-section/home-agenda.dart';
@@ -51,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
             _selectedIndex = index;
           });
         },
+        type: BottomNavigationBarType.shifting,
       ),
     );
   }
@@ -87,10 +90,35 @@ class NotifikasiScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: backgroundColor,
-        child: Center(
-          child: Text("Notifikasi"),
-        ));
+      color: backgroundColor,
+      child: SafeArea(
+        child: Container(
+          margin: EdgeInsets.only(top: 20),
+          padding: EdgeInsets.only(left: 20, right: 20),
+          child: ListView.builder(
+            itemCount: notifikasiList.length,
+            itemBuilder: (context, index) {
+              var item = notifikasiList[index];
+              return Dismissible(
+                key: Key(Random().nextInt(index + 1).toString()),
+                child: Card(
+                  child: InkWell(
+                    onTap: () {},
+                    child: ListTile(
+                      title: Text(item.message),
+                      subtitle: Text(
+                        item.time.difference(DateTime.now()).inHours.toString(),
+                      ),
+                      enabled: true,
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ),
+    );
   }
 }
 
@@ -123,11 +151,29 @@ class ProfilScreen extends StatelessWidget {
                   itemBuilder: (context) => <PopupMenuEntry>[
                     PopupMenuItem(
                       value: 0,
-                      child: Text("Ubah Profil"),
+                      child: Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.edit,
+                            color: Colors.black87,
+                          ),
+                          VerticalDivider(),
+                          Text("Ubah Profil"),
+                        ],
+                      ),
                     ),
                     PopupMenuItem(
                       value: 1,
-                      child: Text("Log Out"),
+                      child: Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.exit_to_app,
+                            color: Colors.black87,
+                          ),
+                          VerticalDivider(),
+                          Text("Log Out"),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -206,22 +252,14 @@ class ProfilScreen extends StatelessWidget {
   void _select(BuildContext context, var selected) {
     switch (selected) {
       case 0:
-        gotoEditProfil(context);
+        Navigator.pop(context);
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => LoginScreen()));
         break;
       case 1:
-        gotoLogin(context);
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => EditProfileScreen()));
         break;
     }
-  }
-
-  gotoLogin(BuildContext context) {
-    Navigator.pop(context);
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => LoginScreen()));
-  }
-
-  gotoEditProfil(BuildContext context) {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => EditProfileScreen()));
   }
 }

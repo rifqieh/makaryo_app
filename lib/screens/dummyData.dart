@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:makaryo_mobile/providers/agendaClass.dart';
 import 'package:makaryo_mobile/providers/kategoriClass.dart';
 import 'package:makaryo_mobile/providers/kontenClass.dart';
+import 'package:makaryo_mobile/providers/notifikasiClass.dart';
 
 List<Agenda> agendaList = [
   Agenda(
@@ -74,4 +75,17 @@ List<Konten> kontenList = [
   Konten("idKonten", "Fesyen", "video", false, "Cara Mendapat Subsribers", ""),
   Konten(
       "idKonten", "Motivasi", "artikel", false, "Cara Mendapat Subsribers", ""),
+];
+
+List<Notifikasi> notifikasiList = [
+  Notifikasi(
+      DateTime.now(), "Anda ditolak oleh admin untuk mengikuti agenda X"),
+  Notifikasi(
+      DateTime.now(), "Anda ditolak oleh admin untuk mengikuti agenda X"),
+  Notifikasi(
+      DateTime.now(), "Anda ditolak oleh admin untuk mengikuti agenda X"),
+  Notifikasi(
+      DateTime.now(), "Anda ditolak oleh admin untuk mengikuti agenda X"),
+  Notifikasi(
+      DateTime.now(), "Anda ditolak oleh admin untuk mengikuti agenda X"),
 ];
