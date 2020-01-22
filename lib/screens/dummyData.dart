@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makaryo_mobile/color.dart';
 import 'package:makaryo_mobile/providers/agendaClass.dart';
 import 'package:makaryo_mobile/providers/kategoriClass.dart';
 import 'package:makaryo_mobile/providers/kontenClass.dart';
@@ -88,4 +89,13 @@ List<Notifikasi> notifikasiList = [
       DateTime.now(), "Anda ditolak oleh admin untuk mengikuti agenda X"),
   Notifikasi(
       DateTime.now(), "Anda ditolak oleh admin untuk mengikuti agenda X"),
+];
+
+List<Color> colorList = [
+  primaryColor,
+  Colors.amberAccent,
+  Colors.redAccent,
+  Colors.blueAccent,
+  Colors.greenAccent,
+  Colors.yellowAccent
 ];

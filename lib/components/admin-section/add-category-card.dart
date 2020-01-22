@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:makaryo_mobile/screens/add-category-admin-screen.dart';
 import 'package:makaryo_mobile/screens/add-post-admin-screen.dart';
 
 class AddCategoryCard extends StatelessWidget {
@@ -7,7 +8,7 @@ class AddCategoryCard extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.push(context,
-            MaterialPageRoute(builder: (context) => AddPostAdminScreen()));
+            MaterialPageRoute(builder: (context) => AddCategoryAdminScreen()));
       },
       child: Card(
         shape: RoundedRectangleBorder(
