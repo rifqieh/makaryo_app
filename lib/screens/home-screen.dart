@@ -53,7 +53,6 @@ class _HomeScreenState extends State<HomeScreen> {
             _selectedIndex = index;
           });
         },
-        type: BottomNavigationBarType.shifting,
       ),
     );
   }
@@ -222,19 +221,41 @@ class ProfilScreen extends StatelessWidget {
                       margin: EdgeInsets.all(20),
                       child: Column(
                         children: <Widget>[
-                          Container(
-                            padding: EdgeInsets.all(10),
-                            height: (1 / 4) * deviceHeight,
-                            child: PieChart(
-                              chartType: ChartType.ring,
-                              dataMap: dataMap,
-                              showLegends: false,
-                            ),
-                          ),
-                          Text("Progres Belajar 75%"),
-                          RaisedButton(
-                            onPressed: () {},
-                            child: Text("Lanjut Belajar"),
+                          Row(
+                            children: <Widget>[
+                              Container(
+                                padding: EdgeInsets.all(10),
+                                height: (1 / 4) * deviceHeight,
+                                child: PieChart(
+                                  chartType: ChartType.ring,
+                                  dataMap: dataMap,
+                                  showLegends: false,
+                                ),
+                              ),
+                              VerticalDivider(),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "Progres Belajar",
+                                    softWrap: true,
+                                  ),
+                                  Text(
+                                    "75%",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .display3
+                                        .copyWith(
+                                          color: Colors.black,
+                                        ),
+                                  ),
+                                  RaisedButton(
+                                    onPressed: () {},
+                                    child: Text("LANJUTKAN"),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ],
                       ),

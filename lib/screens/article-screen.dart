@@ -18,6 +18,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
   @override
   initState() {
     super.initState();
+    loadPdf();
   }
 
   Future<String> get _localPath async {
@@ -28,7 +29,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
 
   Future<File> get _localFile async {
     final path = await _localPath;
-    return File('$path/teste.pdf');
+    return File('$path/rifqiekahardianto_universitassebelasmaret_PKMT.pdf');
   }
 
   Future<File> writeCounter(Uint8List stream) async {
@@ -57,30 +58,26 @@ class _ArticleScreenState extends State<ArticleScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Plugin example app'),
-        ),
-        body: Center(
-          child: Column(
-            children: <Widget>[
-              (path != null)
-                  ? Container(
-                      height: 300.0,
-                      child: PdfViewer(
-                        filePath: path,
-                      ),
-                    )
-                  : Text("Pdf is not Loaded"),
-              RaisedButton(
-                child: Text("Load pdf"),
-                onPressed: loadPdf,
-              ),
-            ],
-          ),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Judul Artikel'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.favorite_border),
+          )
+        ],
       ),
+      body: (path != null)
+          ? Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: PdfViewer(
+                filePath: path,
+              ),
+            )
+          : Center(
+              child: CircularProgressIndicator(),
+            ),
     );
   }
 }

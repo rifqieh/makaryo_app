@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:makaryo_mobile/providers/kontenClass.dart';
+import 'package:makaryo_mobile/screens/article-screen.dart';
 import 'package:makaryo_mobile/screens/pdf-viewer-screen.dart';
 import '../../color.dart';
 
@@ -29,8 +30,8 @@ class _CategoryArticleItemState extends State<CategoryArticleItem> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => PDFViewerScreen()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ArticleScreen()));
       },
       child: Container(
         margin: EdgeInsets.only(left: 20, right: 20, top: 20),

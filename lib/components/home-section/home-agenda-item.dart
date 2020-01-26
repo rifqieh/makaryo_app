@@ -5,9 +5,7 @@ import 'package:makaryo_mobile/screens/agenda-screen.dart';
 class HomeAgendaItem extends StatelessWidget {
   var _agenda;
   var _color = Colors.amberAccent;
-  var _date;
-  var _time;
-  var _location;
+  var _date, _time, _location, _name;
 
   HomeAgendaItem(Agenda agenda) {
     this._agenda = agenda;
@@ -16,6 +14,7 @@ class HomeAgendaItem extends StatelessWidget {
     _time = "${tmp.getJamMulai()} s/d ${tmp.getJamSelesai()}";
     _date = tmp.getTanggal();
     _location = agenda.getLokasi();
+    _name = agenda.getNamaAcara();
   }
 
   @override
@@ -27,47 +26,39 @@ class HomeAgendaItem extends StatelessWidget {
               MaterialPageRoute(builder: (context) => AgendaScreen(_agenda)));
         },
         child: Container(
-          margin: EdgeInsets.symmetric(vertical: 10),
           padding: EdgeInsets.all(20),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
-                height: 90,
+              Expanded(
+                flex: 1,
                 child: AspectRatio(
-                  aspectRatio: 2 / 1,
+                  aspectRatio: 1,
                   child: Container(
                     decoration: BoxDecoration(
                       color: _color,
-                      borderRadius: BorderRadius.circular(16),
                     ),
                   ),
                 ),
               ),
-              Container(
-                child: Column(
-                  children: <Widget>[
-                    Text(
-                      'Waktu:',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                    Text(
-                      _date,
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    ),
-                    Text(
-                      _time,
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    ),
-                    Text(
-                      'Tempat:',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                    Text(
-                      _location,
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    ),
-                  ],
+              Expanded(
+                flex: 3,
+                child: Container(
+                  padding: EdgeInsets.only(left: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        _name,
+                        style: Theme.of(context).textTheme.title,
+                      ),
+                      Text(
+                        _date + " " + _time + "\n" + _location,
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
