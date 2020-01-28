@@ -273,13 +273,13 @@ class ProfilScreen extends StatelessWidget {
   void _select(BuildContext context, var selected) {
     switch (selected) {
       case 0:
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => EditProfileScreen()));
+        break;
+      case 1:
         Navigator.pop(context);
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => LoginScreen()));
-        break;
-      case 1:
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => EditProfileScreen()));
         break;
     }
   }
