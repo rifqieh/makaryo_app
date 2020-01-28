@@ -1,5 +1,5 @@
 # makaryo_mobile
-# DIMOHON SEBELUM PUSH, PROGRAM PASTIKAN BISA DIJALANKAN.
+# DIMOHON SEBELUM PUSH, PASTIKAN PROGRAM BISA DIJALANKAN.
 
 Buat bikin pdf
 https://pub.dev/packages/pdf
