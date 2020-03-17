@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
-abstract class AuthService {
+abstract class AuthService with ChangeNotifier {
   final auth = FirebaseAuth.instance;
 
   Future signInAnonimouslyHandle() async {
@@ -51,5 +52,11 @@ abstract class AuthService {
 
   getCurrentUser() async {
     return await auth.currentUser();
+  }
+
+  signOutHanlde() async {
+    var result = await auth.signOut();
+    notifyListeners();
+    return result;
   }
 }
